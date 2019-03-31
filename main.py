@@ -5,7 +5,7 @@ import cv2
 FILE_PATH = "Tibia.spr"
 OUTPUT_DIR = "./sprites"
 
-TRANS_COLOR = (255, 105, 180)
+TRANS_COLOR = (255, 0, 255)
 SPRITE_WIDTH = 32
 
 def read_u32(data, index):
@@ -62,7 +62,7 @@ n_sprites = read_u16(data, 4)
 for i in range(1,n_sprites+1):
     pixels = read_sprite(data, i)
     if pixels is not None:
-        output_path = os.path.join(OUTPUT_DIR, "{}.png".format(i))
+        output_path = os.path.join(OUTPUT_DIR, "{}.bmp".format(i))
         print("Writing image to path: " + output_path)
 
         pixels_bgr = pixels[:, :, ::-1]
